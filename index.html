@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ibbai Havai</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser-polyfill.min.js"></script>
+</head>
+<body>
+<h1></h1>
+<script type="text/babel">
+	
+	
+
+	console.log("========= Ibbai Haaavai Race has started ==========");
+
+	var RACE_DISTANCE = 100; 
+	var IBBA_VELOCITY=1000;
+	var HAVA_VELOCITY=200;
+
+	function* hThread(distance){
+		
+		var timer = setInterval(function(){
+			console.log("Haaava running..."+distance);
+			distance=distance-1;
+			if(distance==19){
+				clearInterval(timer)
+			}
+		},HAVA_VELOCITY);
+	}
+
+	function* iThread(distance){
+		
+		var timer = setInterval(function(){
+			console.log("Ibba running..."+distance);
+			distance=distance-1;
+			if(distance==0){
+				clearInterval(timer);
+				console.log("############### Huraaaay!!!...Ibba Wins the race ##########");
+
+			}
+		},IBBA_VELOCITY);
+	}
+
+
+	var myH = hThread(RACE_DISTANCE);
+	var myI = iThread(RACE_DISTANCE);
+
+	myH.next();
+	myI.next();
+		
+	
+
+</script>
+</body>
+</html>
